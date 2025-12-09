@@ -82,10 +82,34 @@ interface PuzzleSceneProps {
 }
 
 const PuzzleScene: React.FC<PuzzleSceneProps> = ({ className }) => {
+  // Generate random pieces for better distribution
+  const pieces = useMemo(() => {
+    const items = [];
+    const colors = ["#ec4899", "#8b5cf6", "#db2777", "#6366f1"];
+    
+    for (let i = 0; i < 30; i++) {
+      items.push({
+        position: [
+          (Math.random() - 0.5) * 25, // x: -12.5 to 12.5
+          (Math.random() - 0.5) * 15, // y: -7.5 to 7.5
+          (Math.random() - 0.5) * 10 - 5 // z: -10 to 0
+        ] as [number, number, number],
+        rotation: [
+          Math.random() * Math.PI,
+          Math.random() * Math.PI,
+          0
+        ] as [number, number, number],
+        color: colors[Math.floor(Math.random() * colors.length)],
+        scale: 0.5 + Math.random() * 1.0
+      });
+    }
+    return items;
+  }, []);
+
   return (
     <div className={`${className || ''}`}>
       <Canvas 
-        camera={{ position: [0, 0, 10], fov: 40 }} 
+        camera={{ position: [0, 0, 12], fov: 45 }} 
         gl={{ 
           alpha: true,
           antialias: true,
@@ -102,24 +126,18 @@ const PuzzleScene: React.FC<PuzzleSceneProps> = ({ className }) => {
           color="#a78bfa"
         />
         
-        <Sparkles count={80} scale={15} size={2} speed={0.4} opacity={0.4} color="#f472b6" />
+        <Sparkles count={100} scale={20} size={3} speed={0.4} opacity={0.4} color="#f472b6" />
         
         <group>
-          {/* Left Side */}
-          <PuzzlePiece position={[-5, 2, -2]} rotation={[0.5, 0.5, 0]} color="#ec4899" scale={0.8} />
-          <PuzzlePiece position={[-7, -3, -4]} rotation={[0.2, 0.5, 0]} color="#8b5cf6" scale={1.2} />
-          <PuzzlePiece position={[-4, -1, 1]} rotation={[0.1, 0.2, 0]} color="#db2777" scale={0.5} />
-          <PuzzlePiece position={[-3, 4, -5]} rotation={[0.4, 0.1, 0.2]} color="#6366f1" scale={0.7} />
-
-          {/* Right Side */}
-          <PuzzlePiece position={[5, 3, -1]} rotation={[-0.5, 0.2, 0.5]} color="#db2777" scale={0.9} />
-          <PuzzlePiece position={[8, -2, -3]} rotation={[0.2, -0.5, 0]} color="#6366f1" scale={1.1} />
-          <PuzzlePiece position={[4, -4, 0]} rotation={[0, 0.5, 0]} color="#ec4899" scale={0.6} />
-          <PuzzlePiece position={[6, 1, -6]} rotation={[0.3, 0.3, 0]} color="#8b5cf6" scale={1.4} />
-          
-          {/* Distant/Background */}
-          <PuzzlePiece position={[0, 6, -8]} rotation={[1, 1, 0]} color="#8b5cf6" scale={1.5} />
-          <PuzzlePiece position={[-2, -7, -5]} rotation={[0.5, 0, 0.5]} color="#db2777" scale={1.0} />
+          {pieces.map((piece, i) => (
+            <PuzzlePiece 
+              key={i}
+              position={piece.position} 
+              rotation={piece.rotation} 
+              color={piece.color} 
+              scale={piece.scale} 
+            />
+          ))}
         </group>
 
         <Environment preset="city" />

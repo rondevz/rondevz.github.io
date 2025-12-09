@@ -1,15 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import { cn } from "../utils";
-import PuzzleScene from "./PuzzleScene.tsx";
+import InteractiveHeadline from "./InteractiveHeadline";
 const { class: className } = Astro.props;
 ---
 
 <div class={cn("relative flex flex-col items-center justify-center w-full min-h-[80vh]", className)}>
-	<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-		<PuzzleScene client:load className="w-full h-full opacity-30" />
-	</div>
-
 	<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 			
@@ -19,9 +15,7 @@ const { class: className } = Astro.props;
 					&lt;Computer Engineer /&gt;
 				</h2>
 				
-				<h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight text-white">
-					Solving Problems <br /> with <span class="text-transparent bg-clip-text bg-linear-to-r from-pink-500 to-violet-500">Software</span>
-				</h1>
+				<InteractiveHeadline client:load />
 
 				<p class="text-xl text-gray-300 mb-8 max-w-lg">
 					Hi, I'm <span class="font-bold text-white">Ronald Pereira</span>. I build efficient, scalable, and user-centric digital solutions.
@@ -67,7 +61,7 @@ const { class: className } = Astro.props;
 							loading="eager"
 						/>
 						<!-- Overlay Gradient -->
-						<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 via-transparent to-transparent opacity-60"></div>
+						<div class="absolute inset-0 bg-linear-to-t from-gray-900/50 via-transparent to-transparent opacity-60"></div>
 					</div>
 				</div>
 			</div>
