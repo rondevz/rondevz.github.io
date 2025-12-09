@@ -1,0 +1,19 @@
+---
+import ProjectsGrid from "../ProjectsGrid.astro";
+import { contributedProjects } from "../../data/projects";
+
+const { class: className } = Astro.props;
+---
+
+<section class={className}>
+  <div class="mb-10 text-center">
+    <h2 class="text-2xl font-bold mb-1">
+      <span class="text-teal-500 font-code">></span> Featured Projects
+    </h2>
+    <p class="text-base text-gray-400">
+       A selection of my recent work. <a href="/projects" class="text-pink-400 hover:underline">View all projects</a>.
+    </p>
+  </div>
+  
+  <ProjectsGrid projects={contributedProjects.slice(0, 3)} />
+</section>

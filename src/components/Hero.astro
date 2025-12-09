@@ -6,35 +6,53 @@ const { class: className } = Astro.props;
 ---
 
 <div class={cn("flex flex-col items-center justify-center w-full h-full", className)}>
-	<Image
-		src="https://avatars.githubusercontent.com/u/41125008?v=4"
-		alt="Profile Pic from Github"
-		class="rounded-2xl size-24 mb-4"
-		width={100}
-		height={100}
-		loading="eager"
-	/>
+	<div class="relative mb-8 group">
+		<div class="absolute -inset-1 bg-linear-to-r from-pink-600 to-violet-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+		<Image
+			src="https://avatars.githubusercontent.com/u/41125008?v=4"
+			alt="Profile Pic from Github"
+			class="relative rounded-2xl size-28 border border-gray-800 bg-gray-900"
+			width={112}
+			height={112}
+			loading="eager"
+		/>
+	</div>
 
-	<h1 class="relative text-5xl text-center font-black mb-2.5">		
-		Hi, I'm Ronald Pereira		
+	<h1 class="relative text-5xl md:text-7xl text-center font-black mb-6 tracking-tight leading-tight">		
+		Solving Problems<br class="hidden md:block" /> with <span class="text-transparent bg-clip-text bg-linear-to-r from-pink-500 to-violet-500">Software</span>
 	</h1>
 
-	<p class="text-xl text-center mb-8">
-		I'm a Computer Engineer who loves
-		<span class="text-pink-400">Coding</span>,
-		<span class="text-pink-400">Video Games</span>
-		and <span class="text-pink-400">Music</span>
+	<p class="text-xl md:text-2xl text-center mb-10 text-gray-300 max-w-2xl mx-auto">
+		Hi, I'm <span class="font-bold text-white">Ronald Pereira</span>. I build efficient, scalable, and user-centric digital solutions.
 	</p>
 
-	<p class="text-base text-gray-200 text-center max-w-3xl">
-		Full-stack developer skilled in technologies as: PHP, Laravel, React, Go, Javascript and whatever technology you
-		throw me in. I focus on building efficient, user-focused web/mobile applications and enjoy solving complex problems.
+	<div class="text-base md:text-lg text-gray-400 text-center max-w-2xl mx-auto leading-relaxed mb-10">
+		<p class="mb-6">
+			I'm a Computer Engineer and Full-stack Developer who thrives on challenges. 
+			Whether it's architecting a new system, optimizing performance, or debugging a tricky issue, 
+			I bring a problem-solving mindset to every project.
+		</p>
+		
+		<p>
+			My toolkit includes <span class="text-pink-400 font-medium">PHP, Laravel, React, Go, and JavaScript</span>, 
+			but my true skill is adaptability—I learn what's needed to get the job done right.
+		</p>
+	</div>
 
-		<br><br>
-		Yes, I like Dark Souls 2.
+	<div class="flex flex-col sm:flex-row gap-4 mb-12">
+		<a href="/projects" class="px-8 py-3 rounded-full bg-pink-600 hover:bg-pink-500 text-white font-bold transition-all hover:scale-105 shadow-lg shadow-pink-900/20 text-center">
+			View My Work
+		</a>
+		<a href="https://forms.gle/ZLTe8Ahke5ZziQZY6" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-white font-bold border border-gray-700 transition-all hover:scale-105 text-center">
+			Let's Talk
+		</a>
+	</div>
+
+	<p class="text-xs text-gray-600 italic mb-2 hover:text-pink-500 transition-colors cursor-help" title="It's the best one, fight me.">
+		(Yes, I like Dark Souls 2)
 	</p>
 	
-	<div class="h-60 w-full max-w-md mt-4 relative">
+	<div class="h-60 w-full max-w-md relative">
 		<CubeScene client:load className="absolute inset-0" />
 	</div>
 </div>
