@@ -5,54 +5,73 @@ import PuzzleScene from "./PuzzleScene.tsx";
 const { class: className } = Astro.props;
 ---
 
-<div class={cn("flex flex-col items-center justify-center w-full h-full", className)}>
-	<div class="relative mb-8 group">
-		<div class="absolute -inset-1 bg-linear-to-r from-pink-600 to-violet-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
-		<Image
-			src="https://avatars.githubusercontent.com/u/41125008?v=4"
-			alt="Profile Pic from Github"
-			class="relative rounded-2xl size-28 border border-gray-800 bg-gray-900"
-			width={112}
-			height={112}
-			loading="eager"
-		/>
+<div class={cn("relative flex flex-col items-center justify-center w-full min-h-[80vh]", className)}>
+	<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+		<PuzzleScene client:load className="w-full h-full opacity-30" />
 	</div>
 
-	<h1 class="relative text-5xl md:text-7xl text-center font-black mb-6 tracking-tight leading-tight">		
-		Solving Problems<br class="hidden md:block" /> with <span class="text-transparent bg-clip-text bg-linear-to-r from-pink-500 to-violet-500">Software</span>
-	</h1>
+	<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+			
+			<!-- Left Column: Text -->
+			<div class="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
+				<h2 class="text-pink-500 font-bold tracking-wide uppercase mb-4 text-sm md:text-base font-code">
+					&lt;Computer Engineer /&gt;
+				</h2>
+				
+				<h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight text-white">
+					Solving Problems <br /> with <span class="text-transparent bg-clip-text bg-linear-to-r from-pink-500 to-violet-500">Software</span>
+				</h1>
 
-	<p class="text-xl md:text-2xl text-center mb-10 text-gray-300 max-w-2xl mx-auto">
-		Hi, I'm <span class="font-bold text-white">Ronald Pereira</span>. I build efficient, scalable, and user-centric digital solutions.
-	</p>
+				<p class="text-xl text-gray-300 mb-8 max-w-lg">
+					Hi, I'm <span class="font-bold text-white">Ronald Pereira</span>. I build efficient, scalable, and user-centric digital solutions.
+				</p>
 
-	<div class="text-base md:text-lg text-gray-400 text-center max-w-2xl mx-auto leading-relaxed mb-10">
-		<p class="mb-6">
-			I'm a Computer Engineer and Full-stack Developer who thrives on challenges. 
-			Whether it's architecting a new system, optimizing performance, or debugging a tricky issue, 
-			I bring a problem-solving mindset to every project.
-		</p>
-		
-		<p>
-			My toolkit includes <span class="text-pink-400 font-medium">PHP, Laravel, React, Go, and JavaScript</span>, 
-			but my true skill is adaptability—I learn what's needed to get the job done right.
-		</p>
-	</div>
+				<div class="text-base text-gray-400 leading-relaxed mb-10 max-w-lg">
+					<p class="mb-4">
+						I thrive on challenges—whether it's architecting a new system, optimizing performance, or debugging a tricky issue.
+					</p>
+					<p>
+						My toolkit includes <span class="text-pink-400 font-medium">PHP, Laravel, React, Go, and JavaScript</span>, but my true skill is adaptability.
+					</p>
+				</div>
 
-	<div class="flex flex-col sm:flex-row gap-4 mb-12">
-		<a href="/projects" class="px-8 py-3 rounded-full bg-pink-600 hover:bg-pink-500 text-white font-bold transition-all hover:scale-105 shadow-lg shadow-pink-900/20 text-center">
-			View My Work
-		</a>
-		<a href="https://forms.gle/ZLTe8Ahke5ZziQZY6" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full bg-gray-800 hover:bg-gray-700 text-white font-bold border border-gray-700 transition-all hover:scale-105 text-center">
-			Let's Talk
-		</a>
-	</div>
+				<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+					<a href="/projects" class="px-8 py-3 rounded-lg bg-pink-600 hover:bg-pink-500 text-white font-bold transition-all hover:-translate-y-1 shadow-lg shadow-pink-900/20 text-center">
+						View My Work
+					</a>
+					<a href="https://forms.gle/ZLTe8Ahke5ZziQZY6" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-bold border border-gray-700 transition-all hover:-translate-y-1 text-center">
+						Let's Talk
+					</a>
+				</div>
+				
+				<p class="mt-8 text-xs text-gray-600 italic hover:text-pink-500 transition-colors cursor-help" title="It's the best one, fight me.">
+					(Yes, I like Dark Souls 2)
+				</p>
+			</div>
 
-	<p class="text-xs text-gray-600 italic mb-2 hover:text-pink-500 transition-colors cursor-help" title="It's the best one, fight me.">
-		(Yes, I like Dark Souls 2)
-	</p>
-	
-	<div class="h-60 w-full max-w-md relative">
-		<PuzzleScene client:load className="absolute inset-0" />
+			<!-- Right Column: Image -->
+			<div class="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+				<div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 group">
+					<!-- Decorative Border/Frame -->
+					<div class="absolute inset-0 border-2 border-pink-500/30 rounded-2xl translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+					
+					<!-- Image Container -->
+					<div class="absolute inset-0 bg-gray-900 rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+						<Image
+							src="https://avatars.githubusercontent.com/u/41125008?v=4"
+							alt="Ronald Pereira"
+							class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+							width={400}
+							height={400}
+							loading="eager"
+						/>
+						<!-- Overlay Gradient -->
+						<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 via-transparent to-transparent opacity-60"></div>
+					</div>
+				</div>
+			</div>
+
+		</div>
 	</div>
 </div>

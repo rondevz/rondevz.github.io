@@ -85,7 +85,7 @@ const PuzzleScene: React.FC<PuzzleSceneProps> = ({ className }) => {
   return (
     <div className={`${className || ''}`}>
       <Canvas 
-        camera={{ position: [0, 0, 6], fov: 45 }} 
+        camera={{ position: [0, 0, 10], fov: 40 }} 
         gl={{ 
           alpha: true,
           antialias: true,
@@ -102,16 +102,24 @@ const PuzzleScene: React.FC<PuzzleSceneProps> = ({ className }) => {
           color="#a78bfa"
         />
         
-        <Sparkles count={50} scale={8} size={3} speed={0.4} opacity={0.5} color="#f472b6" />
+        <Sparkles count={80} scale={15} size={2} speed={0.4} opacity={0.4} color="#f472b6" />
         
         <group>
-          {/* Main Piece */}
-          <PuzzlePiece position={[0, 0, 0]} rotation={[0, 0, 0]} color="#ec4899" scale={1.5} />
+          {/* Left Side */}
+          <PuzzlePiece position={[-5, 2, -2]} rotation={[0.5, 0.5, 0]} color="#ec4899" scale={0.8} />
+          <PuzzlePiece position={[-7, -3, -4]} rotation={[0.2, 0.5, 0]} color="#8b5cf6" scale={1.2} />
+          <PuzzlePiece position={[-4, -1, 1]} rotation={[0.1, 0.2, 0]} color="#db2777" scale={0.5} />
+          <PuzzlePiece position={[-3, 4, -5]} rotation={[0.4, 0.1, 0.2]} color="#6366f1" scale={0.7} />
+
+          {/* Right Side */}
+          <PuzzlePiece position={[5, 3, -1]} rotation={[-0.5, 0.2, 0.5]} color="#db2777" scale={0.9} />
+          <PuzzlePiece position={[8, -2, -3]} rotation={[0.2, -0.5, 0]} color="#6366f1" scale={1.1} />
+          <PuzzlePiece position={[4, -4, 0]} rotation={[0, 0.5, 0]} color="#ec4899" scale={0.6} />
+          <PuzzlePiece position={[6, 1, -6]} rotation={[0.3, 0.3, 0]} color="#8b5cf6" scale={1.4} />
           
-          {/* Background Pieces */}
-          <PuzzlePiece position={[-2, 1.5, -2]} rotation={[0.5, 0.5, 0]} color="#8b5cf6" scale={0.8} />
-          <PuzzlePiece position={[2, -1, -1]} rotation={[-0.5, 0.2, 0.5]} color="#db2777" scale={0.6} />
-          <PuzzlePiece position={[-1.5, -2, -3]} rotation={[0.2, -0.5, 0]} color="#6366f1" scale={0.7} />
+          {/* Distant/Background */}
+          <PuzzlePiece position={[0, 6, -8]} rotation={[1, 1, 0]} color="#8b5cf6" scale={1.5} />
+          <PuzzlePiece position={[-2, -7, -5]} rotation={[0.5, 0, 0.5]} color="#db2777" scale={1.0} />
         </group>
 
         <Environment preset="city" />
