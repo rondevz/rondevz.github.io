@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { cn } from "../utils";
-import CubeScene from "./CubeScene.tsx";
+import PuzzleScene from "./PuzzleScene.tsx";
 const { class: className } = Astro.props;
 ---
 
@@ -53,6 +53,6 @@ const { class: className } = Astro.props;
 	</p>
 	
 	<div class="h-60 w-full max-w-md relative">
-		<CubeScene client:load className="absolute inset-0" />
+		<PuzzleScene client:load className="absolute inset-0" />
 	</div>
 </div>
