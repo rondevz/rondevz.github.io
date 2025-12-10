@@ -87,7 +87,7 @@ const PuzzleScene: React.FC<PuzzleSceneProps> = ({ className }) => {
     const items = [];
     const colors = ["#ec4899", "#8b5cf6", "#db2777", "#6366f1"];
     
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 7; i++) {
       items.push({
         position: [
           (Math.random() - 0.5) * 25, // x: -12.5 to 12.5
@@ -107,7 +107,7 @@ const PuzzleScene: React.FC<PuzzleSceneProps> = ({ className }) => {
   }, []);
 
   return (
-    <div className={`${className || ''}`}>
+    <div className={`${className || ''}`} style={{ width: '100%', height: '100vh' }}>
       <Canvas 
         camera={{ position: [0, 0, 12], fov: 45 }} 
         gl={{ 

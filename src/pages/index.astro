@@ -5,9 +5,13 @@ import Hero from "../components/Hero.astro";
 import LatestArticles from '../components/home/LatestArticles.astro';
 import FeaturedProjects from '../components/home/FeaturedProjects.astro';
 import Layout from "../layouts/Layout.astro";
+import PuzzleScene from '../components/PuzzleScene';
 ---
 
 <Layout>
+	<slot name="background">		
+		<PuzzleScene className="absolute inset-0 opacity-55" client:load />
+	</slot>
 	<main class="text-gray-200 w-full h-full overflow-x-hidden">
 		<Hero class="mt-28 mb-36 lg:mt-14 lg:mb-14" />
 		<FeaturedProjects class="mb-36 lg:mb-40" />
