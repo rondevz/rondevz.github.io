@@ -7,9 +7,9 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<article class="my-32">
+<article class="my-12">
 	<div class="mb-12 rounded-md overflow-hidden shadow-md shadow-pink-500">
-		{heroImage && <img class="w-full" height={510} src={heroImage} alt="" />}
+		{heroImage && <img class="w-full h-[420px] object-cover object-center" src={heroImage} alt="" />}
 	</div>
 	<div class="prose prose-pink prose-invert max-w-4xl mx-auto prose-kbd:bg-pink-800">
 		<div>
