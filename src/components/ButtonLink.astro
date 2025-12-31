@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Variant = "primary" | "secondary" | "tertiary";
+
+type Props = HTMLAttributes<"a"> & {
+    variant?: Variant;
+};
+
+const { href, class: className, variant = "primary", ...props } = Astro.props as Props;
+
+const baseClasses =
+    "px-8 py-3 rounded-lg text-white font-bold transition-all hover:-translate-y-1 text-center";
+
+const variantClasses: Record<Variant, string> = {
+    primary: "bg-pink-600 hover:bg-pink-500 shadow-lg shadow-pink-900/20",
+    secondary: "bg-gray-800 hover:bg-gray-700 border border-gray-700",
+    tertiary: "bg-transparent hover:bg-gray-800 border border-gray-700",
+};
+---
+
+<a href={href} 
+    class:list={[
+        className,
+        baseClasses,
+        variantClasses[variant],
+    ]}
+    {...props}>
+    <slot></slot>
+</a>

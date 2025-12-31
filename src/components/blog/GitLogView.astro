@@ -37,13 +37,13 @@ function getRelativeTimeString(dateString: string | Date): string {
   
   <div class="relative">
     {posts.map((post, index) => (
-        <a href={`/blog/${post.id}`}>
-            <div class="flex mb-3 relative">
+      <a href={`/blog/${post.id}`} class="block">
+        <div class="flex mb-3 relative">
                 {index < posts.length - 1 && (
-                  <div class="absolute left-[15px] top-8 z-20 bottom-0 w-0.5 bg-pink-400"></div>
+            <div class="absolute left-[15px] top-8 z-0 bottom-0 w-0.5 bg-pink-400 pointer-events-none"></div>
                 )}
                 
-                <div class={`rounded-full size-8 flex items-center justify-center z-10 mr-3 ${index === 0 ? 'bg-pink-500 shadow-md shadow-pink-500' : 'border border-pink-500'}`}>
+          <div class={`rounded-full size-8 flex items-center justify-center relative z-10 mr-3 ${index === 0 ? 'bg-pink-500 shadow-md shadow-pink-500' : 'border border-pink-500'}`}>
                 {index === 0 ? 
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5 text-white">
                     <path d="M11.644 1.59a.75.75 0 01.712 0l9.75 5.25a.75.75 0 010 1.32l-9.75 5.25a.75.75 0 01-.712 0l-9.75-5.25a.75.75 0 010-1.32l9.75-5.25z" />
@@ -54,14 +54,14 @@ function getRelativeTimeString(dateString: string | Date): string {
                 }
                 </div>
                 
-                <div class={`flex-1 border font-code cursor-pointer border-gray-800 hover:border-pink-500 hover:shadow shadow-pink-400 rounded-xl px-3 py-3`}>
+          <div class={`flex-1 border font-code cursor-pointer border-gray-800 hover:border-pink-500 hover:shadow shadow-pink-400 rounded-xl px-3 py-3 relative z-10`}>
                     <div class="flex items-center gap-1 mb-3">
                         <span class={`text-xs rounded-sm ${getTagColor(post.data.tag)}`}>#{post.data.tag}</span>
                         <span class="text-gray-400 text-xs ml-1">{new Date(post.data.pubDate).toLocaleDateString('en-US', {month: 'short', day: 'numeric'})}</span>
                         <span class="text-gray-500 text-xs">{new Date(post.data.pubDate).getFullYear()}</span>
                     </div>
                     <div class="flex items-start">
-                        <a href={`/blog/${post.id}`} class="text-white text-xs font-medium hover:text-pink-400 transition block">{post.data.title}</a>
+              <span class="text-white text-xs font-medium group-hover:text-pink-400 transition block">{post.data.title}</span>
                         <span class="ml-auto text-gray-500 text-xs">{getRelativeTimeString(post.data.pubDate)}</span>
                     </div>
                     <p class="text-gray-400 text-xs mt-2 lg:max-w-xl line-clamp-2">{post.data.description}</p>

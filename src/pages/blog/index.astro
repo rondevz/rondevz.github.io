@@ -9,12 +9,12 @@ const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueO
 <Layout>
 	<main class="text-gray-200 w-full h-full overflow-x-hidden">
 		<div class="mt-24 mb-36 lg:mt-28 lg:mb-40">
-			<h1 class="relative text-3xl md:text-4xl text-left max-w-xl font-black mb-4">		
-				Things I write on my spare time <span class="text-pink-400">(mostly about software)</span>
+			<h1 class="relative text-3xl md:text-5xl text-left max-w-2xl font-black mb-6">		
+				Insights & <span class="text-pink-500">Dev Logs</span>
 			</h1>
 		
-			<p class="text-lg text-left text-gray-400 mb-8">
-				I dedicate this space to writing about my learning and development journey, product creation, video game development, and life experiences.
+			<p class="text-lg text-left text-gray-400 mb-12 max-w-2xl">
+				Documenting my journey in software engineering, game development, and the problems I solve along the way.
 			</p>
 
 			<GitLogView posts={posts} />

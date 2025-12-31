@@ -4,16 +4,16 @@ import XIcon from "./icons/XIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 ---
 
-<header class="flex justify-between items-center w-full">
-	<a target="_blank" href="https://x.com/rondevz">
+<header class="flex justify-between items-center w-full relative z-50">
+	<a target="_blank" href="https://x.com/rondevz" class="hover:scale-110 transition-transform">
 		<XIcon />
 	</a>
-	<nav class="flex justify-center items-center w-fit md:w-80 space-x-5 p-3.5 rounded-2xl bg-gray-950 border border-gray-500">
+	<nav class="flex justify-center items-center w-fit md:w-80 space-x-5 p-3.5 rounded-2xl">
 		<HeaderLink href="/projects">Projects</HeaderLink>
 		<HeaderLink href="/">Home</HeaderLink>
 		<HeaderLink href="/blog">Blog</HeaderLink>
 	</nav>
-	<a target="_blank" href="https://github.com/rondevz">
+	<a target="_blank" href="https://github.com/rondevz" class="hover:scale-110 transition-transform">
 		<GithubIcon />
 	</a>
 </header>

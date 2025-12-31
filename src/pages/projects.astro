@@ -2,93 +2,40 @@
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 import ProjectsGrid from "../components/ProjectsGrid.astro";
-
-interface Project {
-  title: string;
-  description: string;
-  techStack: string[];
-  link?: string;
-  github?: string;
-}
-
-const contributedProjects: Project[] = [
-  {
-    title: "MoonGuard",
-    description: "Keep your sites in orbit. Watch your production web apps status.",
-    techStack: ["PHP", "Laravel", "Filament"],
-    github: "https://github.com/taecontrol/moonguard"
-  },
-  {
-    title: "Larvis",
-    description: "PHP Interface library to communicate with MoonGuard or Krater.",
-    techStack: ["PHP"],
-    github: "https://github.com/taecontrol/larvis"
-  },
-];
-
-/* const personalProjects: Project[] = [
-  {
-    title: "AI Code Assistant",
-    description: "An intelligent coding companion using machine learning techniques",
-    techStack: ["Python", "TensorFlow", "FastAPI"],
-    github: "https://github.com/yourusername/code-assistant"
-  },
-  {
-    title: "Dev Portfolio Template",
-    description: "Minimalist, high-performance portfolio template for developers",
-    techStack: ["Astro", "Tailwind CSS", "TypeScript"],
-    github: "https://github.com/yourusername/portfolio"
-  },
-  {
-    title: "Pixel Game Engine",
-    description: "Lightweight 2D game engine for creating retro-styled games",
-    techStack: ["JavaScript", "WebGL", "Canvas API"],
-    github: "https://github.com/yourusername/game-engine"
-  },
-]; */
+import ButtonLink from "../components/ButtonLink.astro";
+import { contributedProjects } from "../data/projects";
 ---
 
 <Layout>
   <main class="text-gray-200 w-full h-full overflow-x-hidden">
     <div class="mt-24 mb-36 lg:mt-28 lg:mb-40">
-      <h1 class="relative text-3xl md:text-4xl text-left max-w-xl font-black mb-4">
-        Crafting digital experiences <span class="text-pink-400">(one pixel at a time)</span>
+      <h1 class="relative text-3xl md:text-5xl text-left max-w-2xl font-black mb-6">
+        Engineering <span class="text-pink-500">Solutions</span>
       </h1>
       
-      <p class="text-lg text-left text-gray-400 mb-12">
-        Here you'll find a collection of projects that reflect my passion for creating intuitive, performant, and visually striking digital solutions.
+      <p class="text-lg text-left text-gray-400 mb-16 max-w-2xl">
+        A showcase of technical challenges and the software I’ve architected and contribuited to solve them.
       </p>
 
-      <!-- Professional Projects Section -->
       <section class="mb-20">
         <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <span class="text-teal-500 mr-2 font-code">></span><span>Projects I've Contributed To</span>
+          <span class="text-pink-500 mr-2 font-code">></span><span>Open Source & Contributions</span>
         </h2>
-        <p class="text-gray-400 mb-8">Professional projects I've worked on as part of larger teams and organizations.</p>
+        <p class="text-gray-400 mb-8">Enterprise-grade projects engineered within collaborative team environments.</p>
         
         <ProjectsGrid projects={contributedProjects} />
       </section>
 
-      <!-- Personal Projects Section -->
-      <!-- <section>
-        <h2 class="text-2xl font-bold mb-6 flex items-center">
-          <span class="flex-shrink-0 w-8 h-8 mr-3 rounded-full bg-pink-600 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
-            </svg>
-          </span>
-          Personal Projects
-        </h2>
-        <p class="text-gray-400 mb-8">Side projects, experiments, and passion-driven creations I've built independently.</p>
-        
-        <ProjectsGrid projects={personalProjects} />
-      </section> -->
-
       <div class="mt-16 text-center">
-        <p class="text-gray-400 mb-4">Interested in collaborating on a project?</p>
-        <a href="https://forms.gle/ZLTe8Ahke5ZziQZY6" class="bg-pink-500 hover:bg-pink-600 text-white font-medium py-2 px-6 rounded-lg transition-colors duration-300">
-          Let's talk
-        </a>
+        <p class="text-gray-400 mb-6">Interested in collaborating on a project?</p>
+        <ButtonLink
+						href="https://forms.gle/ZLTe8Ahke5ZziQZY6"
+						variant="primary"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+          Let's Talk
+        </ButtonLink>
       </div>
     </div>
   </main>
