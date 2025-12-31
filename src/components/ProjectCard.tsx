@@ -22,7 +22,7 @@ export default function ProjectCard({ project, index }: { project: ProjectProps;
       className="group relative flex flex-col h-full p-6 bg-gray-900/40 backdrop-blur-sm border border-gray-800 rounded-2xl overflow-hidden hover:border-pink-500/50 transition-colors"
     >
       {/* Hover Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-linear-to-br from-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Decorative "Code" Line */}
       <div className="absolute top-0 left-0 w-1 h-full bg-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -34,7 +34,7 @@ export default function ProjectCard({ project, index }: { project: ProjectProps;
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-gray-400 line-clamp-3 mb-6 flex-grow leading-relaxed">
+        <p className="text-sm text-gray-400 line-clamp-3 mb-6 grow leading-relaxed">
           {project.description}
         </p>
 
