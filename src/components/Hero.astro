@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { cn } from "../utils";
+import ButtonLink from "./ButtonLink.astro";
 import InteractiveHeadline from "./InteractiveHeadline";
 const { class: className } = Astro.props;
 ---
@@ -31,12 +32,17 @@ const { class: className } = Astro.props;
 				</div>
 
 				<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-					<a href="/projects" class="px-8 py-3 rounded-lg bg-pink-600 hover:bg-pink-500 text-white font-bold transition-all hover:-translate-y-1 shadow-lg shadow-pink-900/20 text-center">
+					<ButtonLink href="/projects" variant="primary">
 						View My Work
-					</a>
-					<a href="https://forms.gle/ZLTe8Ahke5ZziQZY6" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-lg bg-gray-800 hover:bg-gray-700 text-white font-bold border border-gray-700 transition-all hover:-translate-y-1 text-center">
+					</ButtonLink>
+					<ButtonLink
+						href="https://forms.gle/ZLTe8Ahke5ZziQZY6"
+						variant="secondary"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						Let's Talk
-					</a>
+					</ButtonLink>
 				</div>
 				
 				<p class="mt-8 text-xs text-gray-600 italic hover:text-pink-500 transition-colors cursor-help" title="It's the best one, fight me.">
