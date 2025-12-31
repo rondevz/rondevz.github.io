@@ -8,7 +8,7 @@ import umami from "@yeskunall/astro-umami";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://example.com",
+	site: "https://rondevz.github.io",
 	integrations: [
 		mdx(),
 		sitemap(),
