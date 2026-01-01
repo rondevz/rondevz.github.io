@@ -21,6 +21,8 @@
 		"@types/three": "^0.181.0",
 		"@yeskunall/astro-umami": "^0.0.4",
 		"astro": "^5.5.2",
+		"astro-og-canvas": "^0.8.0",
+		"canvaskit-wasm": "^0.40.0",
 		"motion": "^12.23.25",
 		"postcss": "^8.5.3",
 		"react": "^18.3.1",
