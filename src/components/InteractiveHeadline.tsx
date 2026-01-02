@@ -1,19 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function InteractiveHeadline() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [showPuzzles, setShowPuzzles] = useState(false);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setShowPuzzles((prev) => !prev);
+    }, 5000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight leading-tight text-white">
       Solving{' '}
       <span 
-        className="inline-block relative cursor-pointer w-full content-center align-top"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        className="inline-block relative w-full content-center align-top"
       >
         <AnimatePresence mode="wait" initial={false}>
-          {isHovered ? (
+          {showPuzzles ? (
             <motion.span
               key="puzzles"
               initial={{ opacity: 0, y: 20 }}
