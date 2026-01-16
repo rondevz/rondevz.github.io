@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.6",
-		"@astrojs/mdx": "^4.2.0",
+		"@astrojs/mdx": "^4.3.2",
 		"@astrojs/react": "^4.2.2",
 		"@astrojs/rss": "^4.0.11",
 		"@astrojs/sitemap": "^3.2.1",
@@ -20,7 +20,7 @@
 		"@types/react": "^19.2.7",
 		"@types/three": "^0.181.0",
 		"@yeskunall/astro-umami": "^0.0.4",
-		"astro": "^5.5.2",
+		"astro": "^5.16.4",
 		"astro-og-canvas": "^0.8.0",
 		"canvaskit-wasm": "^0.40.0",
 		"motion": "^12.23.25",
