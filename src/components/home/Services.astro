@@ -1,0 +1,59 @@
+---
+import { cn } from "../../utils";
+
+const { class: className, ...props } = Astro.props;
+---
+
+<section class={cn(className, "relative")} {...props}>
+    <div class="bg-gray-900/30 border border-gray-800 rounded-3xl p-8 md:p-12 overflow-hidden relative group">
+        <!-- Glow effect -->
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-pink-500/10 blur-3xl rounded-full group-hover:bg-pink-500/20 transition-colors duration-700"></div>
+        
+        <div class="relative z-10 flex flex-col lg:flex-row gap-10 items-center justify-between">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-sm font-medium mb-6">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-pink-500"></span>
+                    </span>
+                    Open to new opportunities
+                </div>
+                
+                <h2 class="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
+                    Need a <span class="text-pink-500">Senior Engineer</span> for your next big project?
+                </h2>
+                
+                <div class="space-y-4 text-gray-400 text-lg">
+                    <p>
+                        I assist companies in building scalable software solutions across web, mobile, and desktop. While I have specialized expertise in <strong class="text-gray-200">Laravel</strong> architectures, my engineering background allows me to deliver robust full-stack applications on any platform.
+                    </p>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <span class="px-3 py-1 bg-gray-900 border border-gray-800 rounded text-sm text-gray-400">Web • Mobile • Desktop</span>
+                    <span class="px-3 py-1 bg-gray-900 border border-gray-800 rounded text-sm text-gray-400">System Architecture</span>
+                    <span class="px-3 py-1 bg-gray-900 border border-gray-800 rounded text-sm text-gray-400">Full Stack</span>
+                </div>
+            </div>
+            
+            <div class="shrink-0 w-full lg:w-auto flex flex-col gap-4">
+                <button
+                    data-tally-open="WORZ5j" 
+                    data-tally-width="580"
+                    data-tally-layout="modal"
+                    data-tally-emoji-text="👋" 
+                    data-tally-emoji-animation="wave"
+                    class="group relative inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-pink-600 rounded-xl hover:bg-pink-500 transition-all hover:scale-[1.02] shadow-xl shadow-pink-500/20 overflow-hidden"
+                >
+                    <span class="relative z-10">Send a proposal</span>
+                    <div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-in-out skew-x-[-20deg]"></div>
+                </button>
+                
+                <p class="text-center text-sm text-gray-500 px-4">
+                    Don't worry, I won't ghost you. I'll get back to you as soon as possible.
+                </p>
+                <script async src="https://tally.so/widgets/embed.js"></script>
+            </div>
+        </div>
+    </div>
+</section>

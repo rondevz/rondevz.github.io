@@ -4,6 +4,7 @@ import BlogPost from "../../layouts/BlogPost.astro";
 import { render } from "astro:content";
 import Layout from '../../layouts/Layout.astro';
 import { SITE_TITLE } from "../../consts";
+import Services from "../../components/home/Services.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection("blog");
@@ -26,4 +27,5 @@ const { Content } = await render(post);
 	<BlogPost {...post.data}>
 		<Content />
 	</BlogPost>
+	<Services id="services" class="mb-36 lg:mb-40" />
 </Layout>

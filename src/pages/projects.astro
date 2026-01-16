@@ -4,6 +4,7 @@ import "../styles/global.css";
 import ProjectsGrid from "../components/ProjectsGrid.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import { contributedProjects } from "../data/projects";
+import Services from "../components/home/Services.astro";
 ---
 
 <Layout>
@@ -26,17 +27,7 @@ import { contributedProjects } from "../data/projects";
         <ProjectsGrid projects={contributedProjects} />
       </section>
 
-      <div class="mt-16 text-center">
-        <p class="text-gray-400 mb-6">Interested in collaborating on a project?</p>
-        <ButtonLink
-						href="https://forms.gle/ZLTe8Ahke5ZziQZY6"
-						variant="primary"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-          Let's Talk
-        </ButtonLink>
-      </div>
+      <Services id="services" class="mb-36 lg:mb-40" />
     </div>
   </main>
 </Layout>
