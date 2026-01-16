@@ -2,6 +2,10 @@
 @plugin "@tailwindcss/typography";
 @config "./tailwind.config.js";
 
+html {
+	scroll-behavior: smooth;
+}
+
 @font-face {
 	font-family: "Fira Code";
 	src: url("/fonts/FiraCode-Regular.woff") format("woff");
