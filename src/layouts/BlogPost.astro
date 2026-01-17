@@ -17,8 +17,10 @@ const { title, description, pubDate, updatedDate, heroImage, headings = [] } = A
                     <a 
                         href={`#${heading.slug}`}
                         class={`
-                            text-sm text-gray-400 hover:text-white transition-colors block
+                            toc-link text-sm text-gray-400 hover:text-white transition-colors block
                             ${heading.depth === 3 ? 'pl-4 border-l border-gray-800 hover:border-pink-500/50' : ''}
+                            data-[active=true]:text-pink-400 data-[active=true]:font-medium
+                            ${heading.depth === 3 ? 'data-[active=true]:border-pink-500' : ''}
                         `}
                     >
                         {heading.text}
@@ -51,3 +53,36 @@ const { title, description, pubDate, updatedDate, heroImage, headings = [] } = A
         </div>
     </div>
 </article>
+
+<script>
+    /**
+     * Highlights the active section in the Table of Contents based on scroll position.
+     * Uses IntersectionObserver for high performance.
+     */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                if (!id) return;
+
+                // Remove active state from all links
+                document.querySelectorAll('.toc-link').forEach((link) => {
+                    link.setAttribute('data-active', 'false');
+                });
+
+                // Add active state to the current link
+                const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.setAttribute('data-active', 'true');
+                }
+            }
+        });
+    }, {
+        rootMargin: '-10% 0px -80% 0px' // Trigger when the heading is near the top of the screen
+    });
+
+    // Observe all headings (h1, h2, h3, etc.) in the article
+    document.querySelectorAll('article h1, article h2, article h3, article h4').forEach((heading) => {
+        observer.observe(heading);
+    });
+</script>
