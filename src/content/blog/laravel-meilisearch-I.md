@@ -157,6 +157,7 @@ To define the index, we modify the `config/scout.php` file. Locate the `meilisea
 Now for the exciting part.
 
 >What is an embedding?
+
 An embedding is a list of floating-point numbers (a vector) that represents the semantic meaning of text. Unlike keyword search, which matches words exactly, embeddings allow the computer to understand that "cozy apartment" and "comfortable studio" are conceptually similar.
 
 This step is crucial. This is how Scout tells Meilisearch to process data using an AI provider. The flow looks like this:
