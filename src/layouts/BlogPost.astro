@@ -2,28 +2,52 @@
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & { headings: { depth: number; slug: string; text: string }[] };
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, headings = [] } = Astro.props;
 ---
 
-<article class="my-12">
-	<div class="mb-12 rounded-md overflow-hidden shadow-md shadow-pink-500">
-		{heroImage && <img class="w-full h-[420px] object-cover object-center" src={heroImage} alt="" />}
-	</div>
-	<div class="prose prose-pink prose-invert max-w-4xl mx-auto prose-kbd:bg-pink-800">
-		<div>
-			<div class="date">
-				<FormattedDate date={pubDate} />
-				{updatedDate && (
-					<div class="last-updated-on">
-						Last updated on <FormattedDate date={updatedDate} />
-					</div>
-				)}
-			</div>
-			<h1>{title}</h1>
-			<hr />
-		</div>
-		<slot></slot>
-	</div>
+<article class="my-12 relative flex lg:gap-12 items-start">
+    <!-- Table of Contents (Sticky Sidebar for Desktop) -->
+    {headings.length > 0 && (
+        <aside class="hidden lg:block sticky top-24 min-w-[250px] max-w-[250px] bg-gray-900/40 p-5 rounded-xl border border-gray-800">
+            <h2 class="text-sm font-bold uppercase tracking-wider text-pink-500 mb-4">On this page</h2>
+            <nav class="flex flex-col gap-2.5">
+                {headings.map((heading) => (
+                    <a 
+                        href={`#${heading.slug}`}
+                        class={`
+                            text-sm text-gray-400 hover:text-white transition-colors block
+                            ${heading.depth === 3 ? 'pl-4 border-l border-gray-800 hover:border-pink-500/50' : ''}
+                        `}
+                    >
+                        {heading.text}
+                    </a>
+                ))}
+            </nav>
+        </aside>
+    )}
+
+    <!-- Main Content -->
+    <div class="flex-1 w-full min-w-0">
+        <div class="mb-12 rounded-md overflow-hidden shadow-md shadow-pink-500">
+            {heroImage && <img class="w-full h-[420px] object-cover object-center" src={heroImage} alt="" />}
+        </div>
+        
+        <div class="prose prose-pink prose-invert max-w-none prose-headings:scroll-mt-24 prose-kbd:bg-pink-800">
+            <div>
+                <div class="date">
+                    <FormattedDate date={pubDate} />
+                    {updatedDate && (
+                        <div class="last-updated-on">
+                            Last updated on <FormattedDate date={updatedDate} />
+                        </div>
+                    )}
+                </div>
+                <h1>{title}</h1>
+                <hr />
+            </div>
+            <slot></slot>
+        </div>
+    </div>
 </article>

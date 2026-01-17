@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
 <Layout
@@ -24,7 +24,7 @@ const { Content } = await render(post);
 	description={post.data.description}
 	image={`/open-graph/${post.id}.png`}
 >
-	<BlogPost {...post.data}>
+	<BlogPost {...post.data} headings={headings}>
 		<Content />
 	</BlogPost>
 	<Services id="services" class="mb-36 lg:mb-40" />
