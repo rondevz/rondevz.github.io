@@ -6,7 +6,7 @@ heroImage: "/vercel-breach-laravel-security.jpg"
 tag: "laravel"
 ---
 
-If someone told you that downloading a cheat for a Roblox game could lead to a $2 million data ransom at one of the biggest web hosting platforms in the world, you probably wouldn’t believe them. But in the world of cybersecurity, the weakest link is rarely where you expect it to be. 
+If someone told you that downloading a cheat for a Roblox game could lead to a **$2 million data ransom** at one of the biggest web hosting platforms in the world, you probably wouldn’t believe them. But in the world of cybersecurity, the weakest link is rarely where you expect it to be. 
 
 This past week, we found out exactly how true that is when Vercel suffered a major security breach. 
 
