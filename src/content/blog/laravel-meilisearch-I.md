@@ -1,7 +1,7 @@
 ---
 title: "Laravel: Vector Search 101 using Scout, Meilisearch & OpenRouter"
 description: "A simple guide on how to implement vector search with Meilisearch, OpenRouter and Laravel Scout."
-pubDate: "Jan 12 2025"
+pubDate: "Jan 12 2026"
 heroImage: "/laravel-meilisearch-scout.jpg"
 tag: "laravel"
 ---
