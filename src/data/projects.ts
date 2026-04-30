@@ -12,7 +12,7 @@ export const contributedProjects: Project[] = [
 		description:
 			"Desktop toolkit for PHP and Laravel teams. Manage sites, switch PHP versions, monitor services, and inspect dumps in one native app built for fast daily development. ",
 		techStack: ["PHP", "Laravel", "Wails"],
-		github: "https://github.com/rondevz/phant",
+		github: "https://phant-app.github.io",
 	},
 	{
 		title: "Metavision",
