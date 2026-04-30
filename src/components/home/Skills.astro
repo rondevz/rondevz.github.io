@@ -30,25 +30,26 @@ const categories = CATEGORY_ORDER.filter(cat => skillsByCategory[cat]);
 
 <section class={cn(className, "relative")}>
 	<div class="mb-12 text-center">
-		<h2 class="text-3xl md:text-4xl font-black mb-4">
-			Skills <span class="text-pink-500">& Tools</span>
+		<div class="section-kicker mb-4">Capability stack</div>
+		<h2 class="text-3xl md:text-4xl font-black mb-4 text-white">
+			Skills <span class="text-pink-400">& Tools</span>
 		</h2>
-		<p class="text-base text-gray-400 max-w-2xl mx-auto">
+		<p class="text-base text-slate-400 max-w-2xl mx-auto">
 			Technologies I use regularly across web, mobile, desktop and cloud.
 		</p>
 	</div>
 
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 		{categories.map((category) => (
-			<div class="bg-gray-900/30 border border-gray-800 rounded-2xl p-6 hover:border-pink-500/30 transition-colors flex flex-col h-full">
-				<h3 class="text-xl font-bold text-gray-200 mb-6 flex items-center gap-3">
-					<span class="w-1.5 h-6 bg-pink-500 rounded-full inline-block"></span>
+			<div class="panel p-6 hover:border-pink-400/35 transition-colors flex flex-col h-full">
+				<h3 class="text-xl font-bold text-slate-100 mb-6 flex items-center gap-3">
+					<span class="w-1.5 h-6 bg-pink-400 rounded-full inline-block"></span>
 					{category}
 				</h3>
 				<div class="grid grid-cols-3 sm:grid-cols-4 gap-3">
 					{skillsByCategory[category].map((skill) => (
-						<div class="group flex flex-col items-center justify-center text-center p-2 rounded-lg hover:bg-white/5 transition-colors" title={skill.name}>
-							<div class="w-10 h-10 flex items-center justify-center p-1 bg-gray-900/50 rounded-md border border-gray-800 group-hover:border-pink-500/30 transition-colors">
+						<div class="group flex flex-col items-center justify-center text-center p-2 rounded-lg hover:bg-white/6 transition-colors" title={skill.name}>
+							<div class="w-10 h-10 flex items-center justify-center p-1 bg-black/20 rounded-md border border-white/10 group-hover:border-pink-400/30 transition-colors">
 								<img
 									src={skill.iconUrl}
 									alt={`${skill.name} logo`}
@@ -57,7 +58,7 @@ const categories = CATEGORY_ORDER.filter(cat => skillsByCategory[cat]);
 									class="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
 								/>
 							</div>
-							<span class="mt-2 text-[10px] uppercase tracking-wider text-gray-400 font-medium group-hover:text-white transition-colors truncate w-full">
+							<span class="mt-2 text-[10px] uppercase tracking-wider text-slate-400 font-medium group-hover:text-white transition-colors truncate w-full">
 								{skill.name}
 							</span>
 						</div>

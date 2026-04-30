@@ -1,31 +1,209 @@
 ---
-import { cn } from '../../utils';
-import ProjectsGrid from "../ProjectsGrid.astro";
+import { cn } from "../../utils";
 import { contributedProjects } from "../../data/projects";
 
 const { class: className } = Astro.props;
+
+const gradientConfigs = [
+	{
+		from: "from-purple-500/22",
+		via: "via-fuchsia-500/10",
+		to: "to-transparent",
+		glow: "bg-purple-500/12",
+		line: "from-purple-400/80",
+		badge: "border-purple-400/25 bg-purple-500/10 text-purple-200",
+		pill: "group-hover:border-purple-400/25 group-hover:text-purple-100",
+		label: "Desktop tooling",
+	},
+	{
+		from: "from-cyan-500/22",
+		via: "via-blue-500/10",
+		to: "to-transparent",
+		glow: "bg-cyan-500/12",
+		line: "from-cyan-400/80",
+		badge: "border-cyan-400/25 bg-cyan-500/10 text-cyan-100",
+		pill: "group-hover:border-cyan-400/25 group-hover:text-cyan-100",
+		label: "Browser utility",
+	},
+	{
+		from: "from-amber-500/20",
+		via: "via-orange-500/10",
+		to: "to-transparent",
+		glow: "bg-amber-500/12",
+		line: "from-amber-400/80",
+		badge: "border-amber-400/25 bg-amber-500/10 text-amber-100",
+		pill: "group-hover:border-amber-400/25 group-hover:text-amber-100",
+		label: "Production monitoring",
+	},
+	{
+		from: "from-emerald-500/20",
+		via: "via-teal-500/10",
+		to: "to-transparent",
+		glow: "bg-emerald-500/12",
+		line: "from-emerald-400/80",
+		badge: "border-emerald-400/25 bg-emerald-500/10 text-emerald-100",
+		pill: "group-hover:border-emerald-400/25 group-hover:text-emerald-100",
+		label: "Package ecosystem",
+	},
+];
+
+const featuredProjects = contributedProjects.slice(0, 4);
 ---
 
-<section class={cn(className, 'relative')}>
-  <div class="mb-12 text-center">
-    <h2 class="text-3xl md:text-4xl font-black mb-4">
-      Featured <span class="text-pink-500">Projects</span>
-    </h2>
-    <p class="text-base text-gray-400 max-w-xl mx-auto">
-       A selection of my recent work.
-    </p>
-  </div>
-  
-  <div class="px-4 md:px-0">
-    <ProjectsGrid projects={contributedProjects.slice(0, 3)} />
-  </div>
+<section class={cn(className, "relative")}>
+	<div
+		class="absolute inset-x-0 top-12 -z-10 h-80 bg-[radial-gradient(circle_at_center,_rgba(236,72,153,0.12),_transparent_60%)] blur-3xl">
+	</div>
 
-  <div class="text-center mt-12">
-    <a href="/projects" class="inline-flex items-center px-6 py-3 bg-gray-900 border border-gray-800 hover:border-pink-500/50 text-gray-300 hover:text-white rounded-lg transition-all duration-300 group">
-      View all projects
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-      </svg>
-    </a>
-  </div>
+	<div class="mb-12 grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.9fr)] lg:items-end xl:grid-cols-[minmax(0,1.5fr)_minmax(420px,0.95fr)]">
+		<div>
+			<div class="section-kicker mb-4">Selected work</div>
+			<h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
+				Featured <span class="text-pink-400">Projects</span>
+			</h2>
+			<p class="mt-4 max-w-2xl text-base md:text-lg text-slate-400 leading-relaxed">
+				A tighter snapshot of the products, experiments, and developer tools I keep pushing forward. Each one
+				solves a different kind of systems problem.
+			</p>
+		</div>
+
+		<div class="panel p-5 md:p-6">
+			<div class="text-[11px] uppercase tracking-[0.24em] text-slate-500">Project signal</div>
+			<div class="mt-4 grid gap-2 text-left sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+				<div>
+					<div class="text-xl font-black leading-tight text-white xl:text-2xl">8+ Years</div>
+					<div class="mt-1 text-sm leading-relaxed text-slate-400 xl:text-xs xl:leading-normal">Shipping software</div>
+				</div>
+				<div>
+					<div class="text-xl font-black leading-tight text-white xl:text-2xl">Cross-platform</div>
+					<div class="mt-1 text-sm leading-relaxed text-slate-400 xl:text-xs xl:leading-normal">Web, desktop, mobile and browser tools</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="relative mx-auto max-w-6xl px-4 md:px-0">
+		<div
+			class="pointer-events-none absolute left-8 top-0 hidden h-full w-px bg-linear-to-b from-white/0 via-white/10 to-white/0 lg:block">
+		</div>
+
+		<div class="flex flex-col gap-5">
+			{featuredProjects.map((project, index) => {
+				const accent = gradientConfigs[index] ?? gradientConfigs[0];
+
+				return (
+					<a
+						href={project.github || project.link || "#"}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(18,26,36,0.92),rgba(9,14,20,0.82))] backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/18 hover:shadow-[0_18px_80px_rgba(8,12,18,0.45)]">
+						<div
+							class={cn(
+								"absolute inset-0 bg-linear-to-br opacity-100 transition-opacity duration-700",
+								accent.from,
+								accent.via,
+								accent.to
+							)}
+						/>
+
+						<div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_28%,transparent_72%,rgba(255,255,255,0.04))] opacity-40" />
+
+						<div
+							class={cn(
+								"absolute -right-16 top-1/2 h-44 w-44 -translate-y-1/2 rounded-full blur-3xl opacity-60 transition-all duration-700 group-hover:scale-125 group-hover:opacity-100",
+								accent.glow
+							)}
+						/>
+
+						<div class="absolute inset-y-5 left-5 hidden w-px bg-linear-to-b from-white/0 via-white/12 to-white/0 lg:block" />
+						<div
+							class={cn(
+								"absolute left-5 top-5 hidden h-16 w-px bg-linear-to-b to-transparent lg:block",
+								accent.line
+							)}
+						/>
+
+						<div class="relative z-10 grid gap-6 p-6 md:p-7 lg:grid-cols-[minmax(0,1.45fr)_minmax(220px,0.85fr)] lg:items-center lg:gap-8 lg:p-8">
+							<div class="flex-1 min-w-0">
+								<div class="flex items-start justify-between gap-4 mb-3">
+									<div>
+										<h3 class="text-xl md:text-2xl font-black text-slate-100 group-hover:text-white transition-colors leading-tight">
+											{project.title}
+										</h3>
+										<p class="mt-2 max-w-2xl text-sm md:text-[15px] text-slate-400 group-hover:text-slate-250 transition-colors leading-relaxed">
+											{project.description}
+										</p>
+									</div>
+								</div>
+
+								<div class="flex flex-wrap gap-2.5">
+									{project.techStack.map((tech) => (
+										<span
+											class={cn(
+												"rounded-md border border-white/10 bg-black/10 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-slate-400 transition-colors",
+												accent.pill
+											)}>
+											{tech}
+										</span>
+									))}
+								</div>
+							</div>
+
+							<div class="flex flex-col gap-5 border-t border-white/8 pt-4 lg:border-t-0 lg:border-l lg:border-white/8 lg:pl-8 lg:pt-0">
+								<div>
+									<div class="text-[11px] uppercase tracking-[0.24em] text-slate-500">Type</div>
+									<div
+										class={cn(
+											"mt-2 inline-flex self-start rounded-full border px-3 py-1 text-[11px] font-medium tracking-[0.18em] uppercase",
+											accent.badge
+										)}>
+										{accent.label}
+									</div>
+								</div>
+
+								<div>
+									<div class="text-[11px] uppercase tracking-[0.24em] text-slate-500">
+										Primary link
+									</div>
+									<div class="mt-2 inline-flex items-center gap-2 text-sm font-medium text-slate-300 transition-colors group-hover:text-white">
+										Explore repository
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor">
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="1.8"
+												d="M13 7l5 5m0 0l-5 5m5-5H6"
+											/>
+										</svg>
+									</div>
+								</div>
+							</div>
+						</div>
+					</a>
+				);
+			})}
+		</div>
+	</div>
+
+	<div class="text-center mt-12">
+		<a
+			href="/projects"
+			class="inline-flex items-center px-6 py-3 rounded-xl border border-white/12 bg-white/5 hover:bg-white/8 hover:border-pink-400/35 text-slate-200 hover:text-white transition-all duration-300 group">
+			View all projects
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"
+				></path>
+			</svg>
+		</a>
+	</div>
 </section>

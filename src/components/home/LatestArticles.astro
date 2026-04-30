@@ -11,10 +11,11 @@ const posts = allPosts.slice(0, 4);
 
 <section class={cn(className, 'relative')}>
   <div class="mb-12 text-center">
-    <h2 class="text-3xl md:text-4xl font-black mb-4">
-      Latest <span class="text-pink-500">Insights</span>
+    <div class="section-kicker mb-4">Writing</div>
+    <h2 class="text-3xl md:text-4xl font-black mb-4 text-white">
+      Latest <span class="text-pink-400">Insights</span>
     </h2>
-    <p class="text-base text-gray-400 max-w-xl mx-auto">
+    <p class="text-base text-slate-400 max-w-xl mx-auto">
       Thoughts on software engineering, game development, and the tech industry.
     </p>
   </div>
@@ -26,7 +27,7 @@ const posts = allPosts.slice(0, 4);
   </div>
   
   <div class="text-center mt-12">
-    <a href="/blog" class="inline-flex items-center px-6 py-3 bg-gray-900 border border-gray-800 hover:border-pink-500/50 text-gray-300 hover:text-white rounded-lg transition-all duration-300 group">
+    <a href="/blog" class="inline-flex items-center px-6 py-3 rounded-xl border border-white/12 bg-white/5 hover:bg-white/8 hover:border-pink-400/35 text-slate-200 hover:text-white transition-all duration-300 group">
       View all articles
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />

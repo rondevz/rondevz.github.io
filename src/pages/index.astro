@@ -12,12 +12,12 @@ import PuzzleScene from '../components/PuzzleScene';
 
 <Layout>
 	<slot name="background">		
-		<PuzzleScene className="absolute inset-0 opacity-55" client:load />
+		<PuzzleScene className="absolute inset-0 opacity-45" client:load />
 	</slot>
 	<main class="text-gray-200 w-full h-full overflow-x-hidden">
-		<Hero class="mt-16 mb-36 lg:mt-14 lg:mb-14" />
-		<Skills class="mb-36 lg:mb-40" />
+		<Hero class="mt-16 mb-28 lg:mt-14 lg:mb-20" />
 		<FeaturedProjects class="mb-36 lg:mb-40" />
+		<Skills class="mb-36 lg:mb-40" />
 		<LatestArticles class="mb-36 lg:mb-40" />
 		<Services id="services" class="mb-36 lg:mb-40" />
 	</main>

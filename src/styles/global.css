@@ -4,6 +4,7 @@
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 @font-face {
@@ -57,6 +58,66 @@ html {
 @theme {
 	--font-sans: "Inter", "sans-serif";
 	--font-code: "Fira Code", "sans-serif";
+}
+
+:root {
+	color-scheme: dark;
+	--bg: #070b10;
+	--bg-elevated: #101720;
+	--surface: rgba(13, 19, 27, 0.78);
+	--surface-strong: #111a24;
+	--border: rgba(160, 178, 202, 0.2);
+	--text: #e5ecf5;
+	--text-muted: #97a7be;
+	--accent: #e879b8;
+	--accent-strong: #ec4899;
+}
+
+body {
+	margin: 0;
+	font-family: var(--font-sans);
+	color: var(--text);
+	overflow-x: hidden;
+	background:
+		radial-gradient(circle at 15% 8%, rgba(236, 72, 153, 0.16), transparent 38%),
+		radial-gradient(circle at 85% 0%, rgba(133, 93, 214, 0.1), transparent 32%),
+		radial-gradient(circle at 50% 120%, rgba(16, 23, 32, 0.92), rgba(7, 11, 16, 1) 55%);
+	background-color: var(--bg);
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	transition: color 220ms ease, border-color 220ms ease, background-color 220ms ease,
+		transform 220ms ease;
+}
+
+::selection {
+	background-color: rgba(232, 121, 184, 0.3);
+	color: #fff;
+}
+
+.section-kicker {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	padding: 0.4rem 0.7rem;
+	border-radius: 9999px;
+	border: 1px solid rgba(236, 72, 153, 0.35);
+	background: rgba(236, 72, 153, 0.08);
+	font-family: var(--font-code);
+	font-size: 0.72rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #f6b7dc;
+}
+
+.panel {
+	background: linear-gradient(180deg, rgba(18, 26, 36, 0.9), rgba(12, 17, 24, 0.78));
+	border: 1px solid var(--border);
+	backdrop-filter: blur(12px);
+	border-radius: 1.2rem;
 }
 
 .sr-only {

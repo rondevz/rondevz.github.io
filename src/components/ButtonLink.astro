@@ -10,12 +10,12 @@ type Props = HTMLAttributes<"a"> & {
 const { href, class: className, variant = "primary", ...props } = Astro.props as Props;
 
 const baseClasses =
-    "px-8 py-3 rounded-lg text-white font-bold transition-all hover:-translate-y-1 text-center";
+	"px-8 py-3 rounded-xl text-white font-semibold tracking-wide transition-all hover:-translate-y-0.5 text-center border";
 
 const variantClasses: Record<Variant, string> = {
-    primary: "bg-pink-600 hover:bg-pink-500 shadow-lg shadow-pink-900/20",
-    secondary: "bg-gray-800 hover:bg-gray-700 border border-gray-700",
-    tertiary: "bg-transparent hover:bg-gray-800 border border-gray-700",
+	primary: "bg-pink-600/95 hover:bg-pink-500 border-pink-400/40 shadow-lg shadow-pink-900/30",
+	secondary: "bg-white/5 hover:bg-white/10 border-white/12 text-slate-200",
+	tertiary: "bg-transparent hover:bg-white/6 border-white/14 text-slate-200",
 };
 ---
 

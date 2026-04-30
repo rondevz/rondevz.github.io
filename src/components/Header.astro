@@ -4,16 +4,27 @@ import XIcon from "./icons/XIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 ---
 
-<header class="flex justify-between items-center w-full relative z-50">
-	<a target="_blank" href="https://x.com/rondevz" class="hover:scale-110 transition-transform">
+
+<header class="flex items-center justify-center w-full relative z-50 gap-3 sm:gap-4">
+	<a target="_blank" href="https://x.com/rondevz" class="shrink-0 inline-flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-pink-400/50 hover:bg-pink-500/10">
 		<XIcon />
 	</a>
-	<nav class="flex justify-center items-center w-fit md:w-80 space-x-5 p-3.5 rounded-2xl">
-		<HeaderLink href="/projects">Projects</HeaderLink>
+	<nav class="panel w-fit max-w-[calc(100vw-7rem)] flex justify-center items-center gap-1 sm:gap-2 px-1.5 sm:px-2 py-2 rounded-2xl overflow-x-auto no-scrollbar">
 		<HeaderLink href="/">Home</HeaderLink>
+		<HeaderLink href="/projects">Projects</HeaderLink>
 		<HeaderLink href="/blog">Blog</HeaderLink>
 	</nav>
-	<a target="_blank" href="https://github.com/rondevz" class="hover:scale-110 transition-transform">
+	<a target="_blank" href="https://github.com/rondevz" class="shrink-0 inline-flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-pink-400/50 hover:bg-pink-500/10">
 		<GithubIcon />
 	</a>
 </header>
+
+<style>
+	.no-scrollbar {
+		scrollbar-width: none;
+	}
+
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+</style>
