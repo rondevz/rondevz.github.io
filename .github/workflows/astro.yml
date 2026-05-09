@@ -22,7 +22,7 @@ jobs:
         uses: withastro/action@v5
         with:
           node-version: 24
-          package-manager: pnpm@latest
+          package-manager: pnpm@10.28.0
 
   deploy:
     needs: build
